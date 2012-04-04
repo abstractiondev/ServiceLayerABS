@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{92451B64-CB7D-4240-9982-3D7AD9823872}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ServiceLayerABS</RootNamespace>
+    <AssemblyName>ServiceLayerABS</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="ServiceLayer\ServiceServer_CSharp_v1_0.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ServiceServer_CSharp_v1_0.designer.cs</LastGenOutput>
+    </None>
+    <None Include="ServiceLayer\ServiceClient_CSharp_v1_0.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ServiceClient_CSharp_v1_0.designer.cs</LastGenOutput>
+    </None>
+    <None Include="ServiceLayer\ServiceContract_CSharp_v1_0.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ServiceContract_CSharp_v1_0.tt</DependentUpon>
+    </None>
+    <None Include="ServiceLayer\ServiceClient_CSharp_v1_0.designer.cs">
+      <DependentUpon>ServiceClient_CSharp_v1_0.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </None>
+    <None Include="ServiceLayer\ServiceServer_CSharp_v1_0.designer.cs">
+      <DependentUpon>ServiceServer_CSharp_v1_0.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </None>
+    <Compile Include="ServiceLayer\ServiceLayer_v1_0_namespace.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Options.xml" />
+    <Content Include="ServiceLayer\Content_v1_0\ServiceLayerContent.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="ServiceLayer\CommonInclude.ttinclude" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ServiceLayer\Content_v1_0\ServiceLayer_v1_0.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ServiceLayer_v1_0.xsd</DependentUpon>
+    </None>
+    <None Include="ServiceLayer\Content_v1_0\ServiceLayer_v1_0.xsd">
+      <SubType>Designer</SubType>
+      <Generator>T4ScriptFileGenerator</Generator>
+      <LastGenOutput>ServiceLayer_v1_0.tt</LastGenOutput>
+    </None>
+    <None Include="ServiceLayer\ServiceContract_CSharp_v1_0.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ServiceContract_CSharp_v1_0.designer.cs</LastGenOutput>
+    </None>
+    <None Include="ServiceLayer\ExampleLocalAndShared_v1_0.tt" />
+    <None Include="ServiceLayer\ServiceLayer_v1_0.ttinclude" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
